@@ -2,6 +2,7 @@ class HashTable {
   constructor (size) {
     this.table = new Array(size)
     this.qtdItems = 0
+    this._keys = []
   }
 
   _hash (key, tableSize) {
@@ -36,19 +37,20 @@ class HashTable {
 
   set (key, value) {
     const verifyForResize = this.qtdItems / this.table.length
-
+    
     if (verifyForResize > 0.8) {
       this._resize()
     }
-
+    
     const index = this._hash(key, this.table.length)
-
+    
     if (this.table[index]) {
       this.table[index] = [...this.table[index], [key, value]]
     } else {
       this.table[index] = [[key, value]]
     }
-
+    
+    this._keys.push(key)
     this.qtdItems++
   }
 
@@ -62,5 +64,9 @@ class HashTable {
 
     const [[, value]] = arrayElements.filter(([k, v]) => k === key)
     return value
+  }
+
+  keys () {
+    return this._keys
   }
 }
