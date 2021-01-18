@@ -95,12 +95,14 @@ class DoublyLinkedList {
     while (second) {
       const temp = second.next
       second.next = first
+      first.prev = second
       first = second
       second = temp
     }
 
     this.head.next = null
     this.head = first
+    this.head.prev = null
   }
 
   print () {
