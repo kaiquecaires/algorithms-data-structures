@@ -1,4 +1,4 @@
-const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+const numbers = [5, 7, 9, 4];
 
 function mergeSort (array) {
   if (array.length === 1) {
@@ -33,8 +33,11 @@ function merge(left, right){
        rightIndex++
     }
   }  
+
+  let resultFinal = result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
   console.log(left, right)
-  return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+  console.log(resultFinal)
+  return resultFinal
 }
 
 
