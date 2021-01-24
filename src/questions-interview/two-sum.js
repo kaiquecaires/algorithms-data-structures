@@ -16,6 +16,25 @@ function twoSum1 (array, sum) {
   return null
 }
 
-const array = [3,2,4]
+// optimized approach
 
-console.log(twoSum1(array, 6))
+function twoSum2 (nums, target) {
+  let complements = {}
+
+  for (let i = 0; i < nums.length; i++) {
+    let key = nums[i]
+    if (complements.hasOwnProperty(key)) {
+      return [complements[key], i]
+    } else {
+      let complement = target - nums[i]
+      complements[complement] = i
+    }
+  }
+
+  return null
+}
+
+
+const array = [2,7,11,15]
+
+console.log(twoSum1(array, 9))
