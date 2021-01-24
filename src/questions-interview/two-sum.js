@@ -6,7 +6,7 @@ function twoSum1 (array, sum) {
 
   for (let i = 0; i < array.length; i++) {
     let target = sum - array[i] 
-    for (let j = i; j < array.length; j++) {
+    for (let j = i + 1; j < array.length; j++) {
       if (array[j] === target) {
         return [i, j]
       }
@@ -16,6 +16,6 @@ function twoSum1 (array, sum) {
   return null
 }
 
-const array = [0, 2, 4, 6, 8, 10]
+const array = [3,2,4]
 
-console.log(twoSum1([1], 1))
+console.log(twoSum1(array, 6))
