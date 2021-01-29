@@ -23,4 +23,28 @@ const longestSubstring = (string) => {
   return total
 }
 
-console.log(longestSubstring('a'))
+
+// optmized solution
+const longestSubstring2 = (string) => {
+  if (string.length <= 1) return string.length
+
+  const chars = {}
+  let longest = 0, left = 0
+
+  for (let right = 0; right < string.length; right++) {
+    let currentValue = string[right]
+    let seenChar = chars[currentValue]
+    
+    if (seenChar >= left) {
+      left = seenChar + 1
+    }
+
+    chars[currentValue] = right
+
+    longest = Math.max(longest, right - left + 1)
+  }
+
+  return longest
+}
+
+console.log(longestSubstring2('abcb'))
