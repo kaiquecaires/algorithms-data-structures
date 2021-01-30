@@ -58,6 +58,27 @@ const isValidPalindromeCenter = function (s) {
   return true;
 }
 
+const reverseString = function (s) {
+  let reverse = '';
+
+  for (let i = s.length - 1; i >= 0; i--) {
+    reverse += s[i];
+  }
+
+  return reverse;
+}
+
+const isValidPalindromeReverse = function (s) {
+  s = s.replace(/[^A-Za-z0-9]/g, '').toLowerCase();
+  if (s.length <= 1) return true;
+
+  if (s === reverseString(s)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 for (const test of testCases) {
-  console.log(isValidPalindromeCenter(test))
+  console.log(isValidPalindromeReverse(test))
 }
